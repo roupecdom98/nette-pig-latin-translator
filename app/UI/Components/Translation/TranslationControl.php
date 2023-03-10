@@ -53,7 +53,7 @@ class TranslationControl extends Control
                 $this->translatedWord = $this->translationService->translateWordToPigLatin($values['word']);
             }
         } catch (Exception $e) {
-            $form->addError('...');
+            $form->addError('Chyba při odeslání formuláře');
             return;
         }
     }

@@ -5,26 +5,27 @@ namespace App\Services\Translation;
 class TranslationService
 {
     // Pole samohlásek
-    private const Vovels = ['a', 'e', 'i', 'o', 'u'];
+    private const Vowels = ['a', 'e', 'i', 'o', 'u'];
 
     /**
-     * @param $word
+     * @param string $word
      *
      * @return string
      */
-    function translateWordToPigLatin($word): string
+    function translateWordToPigLatin(string $word): string
     {
 
         // Pokud slovo začíná samohláskou, přidej "way" na konec
-        if (in_array(strtolower($word[0]), self::Vovels)) {
-            return $word . 'way';
+        if (in_array(strtolower($word[0]), self::Vowels)) {
+            $result = $word . 'way';
+            return strtolower($result);
         }
 
         // Jinak najdi první samohlásku
         $first_vowel_index = null;
 
         for ($i = 0; $i < strlen($word); $i++) {
-            if (in_array(strtolower($word[$i]), self::Vovels)) {
+            if (in_array(strtolower($word[$i]), self::Vowels)) {
                 $first_vowel_index = $i;
                 break;
             }
@@ -32,14 +33,16 @@ class TranslationService
 
         // Pokud není v slově žádná samohláska, vrať původní slovo
         if ($first_vowel_index === null) {
-            return $word;
+            return strtolower($word);
         }
 
         // Přesuň první část slova (před první samohláskou) na konec a přidej "ay"
         $prefix = substr($word, 0, $first_vowel_index);
         $suffix = substr($word, $first_vowel_index);
 
-        return $suffix . $prefix . 'ay';
+        $result = $suffix . $prefix . 'ay';
+
+        return strtolower($result);
     }
 
 }
