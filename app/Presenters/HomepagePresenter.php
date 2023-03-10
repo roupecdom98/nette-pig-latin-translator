@@ -4,27 +4,21 @@ declare(strict_types=1);
 
 namespace App\Presenters;
 
-use App\UI\Form\TranslationFormFactory;
+use App\UI\Components\Translation\TranslationControl;
+use App\UI\Components\Translation\TranslationControlFactory;
 use Nette;
-use Nette\Forms\Form;
-
 
 final class HomepagePresenter extends Nette\Application\UI\Presenter
 {
     public function __construct(
-        private TranslationFormFactory $translationFormFactory
-    )
-    { }
+        private TranslationControlFactory $translationControlFactory
+    ) { }
 
-    protected function createComponentTranslationForm(): Form
+    /**
+     * @return TranslationControl
+     */
+    protected function createComponentTranslationForm(): TranslationControl
     {
-        $form = $this->translationFormFactory->create();
-        return $form;
-    }
-
-    public function renderDefault(): void
-    {
-//        $this->createComponentTranslationForm()->render();
-        $this->template->form = $this->createComponentSignInForm();
+        return $this->translationControlFactory->create();
     }
 }

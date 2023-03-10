@@ -8,4 +8,5 @@ search:
 
 services:
 	- App\Router\RouterFactory::createRouter
-	pigLatinTranslator: App\Services\TranslationService
+	- App\UI\Components\Translation\TranslationControlFactory
+	translationService: App\Services\Translation\TranslationService

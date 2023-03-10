@@ -1,0 +1,102 @@
+<div class="translation-form">
+    <h1>Komponenta pro překlad slova do formátu Pig-Latin</h1>
+    {control form}
+
+    {ifset $translatedWord}
+        <div class="result">
+            Přeložené slovo: {$translatedWord}
+        <div>
+    {/ifset}
+</div>
+
+<style>
+    .translation-form{
+        font: 95% Arial, Helvetica, sans-serif;
+        max-width: 500px;
+        margin: 10px auto;
+        padding: 16px;
+        background: #F7F7F7;
+    }
+    .translation-form h1{
+        background: #43D1AF;
+        padding: 20px 0;
+        font-size: 100%;
+        font-weight: 700;
+        text-align: center;
+        color: #fff;
+        margin: -16px -16px 16px -16px;
+    }
+    .translation-form input[type="text"],
+    .translation-form input[type="date"],
+    .translation-form input[type="datetime"],
+    .translation-form input[type="email"],
+    .translation-form input[type="number"],
+    .translation-form input[type="search"],
+    .translation-form input[type="time"],
+    .translation-form input[type="url"],
+    .translation-form textarea,
+    .translation-form select
+    {
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+        outline: none;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        width: 100%;
+        background: #fff;
+        margin-bottom: 4%;
+        border: 1px solid #ccc;
+        padding: 3%;
+        color: #555;
+        font: 95% Arial, Helvetica, sans-serif;
+    }
+    .translation-form input[type="text"]:focus,
+    .translation-form input[type="date"]:focus,
+    .translation-form input[type="datetime"]:focus,
+    .translation-form input[type="email"]:focus,
+    .translation-form input[type="number"]:focus,
+    .translation-form input[type="search"]:focus,
+    .translation-form input[type="time"]:focus,
+    .translation-form input[type="url"]:focus,
+    .translation-form textarea:focus,
+    .translation-form select:focus
+    {
+        box-shadow: 0 0 5px #43D1AF;
+        padding: 3%;
+        border: 1px solid #43D1AF;
+    }
+
+    .translation-form input[type="submit"],
+    .translation-form input[type="button"]{
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        width: 100%;
+        padding: 3%;
+        background: #43D1AF;
+        border-bottom: 2px solid #30C29E;
+        border-top-style: none;
+        border-right-style: none;
+        border-left-style: none;
+        color: #fff;
+    }
+    .translation-form input[type="submit"]:hover,
+    .translation-form input[type="button"]:hover{
+        background: #2EBC99;
+    }
+    .translation-form table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .translation-form th {
+        padding-right: 15px;
+    }
+    .translation-form .result {
+        margin: 25px auto;
+        font-weight: bold;
+        width: 50%;
+    }
+</style>
