@@ -8,3 +8,5 @@ search:
 
 services:
 	- App\Router\RouterFactory::createRouter
+	- App\UI\Components\Translation\TranslationControlFactory
+	translationService: App\Services\Translation\TranslationService
